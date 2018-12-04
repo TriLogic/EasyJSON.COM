@@ -16,11 +16,11 @@ JSON data in the form of a string is passed to an instance of the JSONReader whi
 
 Writing JSON:
 
-Once a hierachy of objects has been created you can output a JSON string in one of two ways.  
-  1) The easiest is simple to call the ToString method of the root object.  This produces a compacted JSON string.
-  2) Formatted output functionality is available via the JSONWriter class which provides formatting with options for 
-  several popular "C" bracing and indentation styles including: K&R, Allman, Whitesmith as well as Linear compact and expanded.
+Once a hierachy of objects has been created (or read) you can output a JSON string in one of two ways.  
+  1) The easiest is to call the ToString method of the root object.  This produces a compacted JSON string.
+  2) Formatted output is available via the JSONWriter class which provides formatting with options for several
+     popular "C" bracing and indentation styles including: K&R, Allman, Whitesmith as well as Linear compact and expanded.
   
- There is a fuilly functional test application in the TestJSON folder.
+ There is a fully functional test application in the TestEasyJSON folder.
   
 ~Enjoy
