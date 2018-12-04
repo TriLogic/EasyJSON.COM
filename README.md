@@ -21,4 +21,6 @@ Once a hierachy of objects has been created you can create a single JSON string 
   2) Formatted output functionality is available via the JSONWriter class which provides formatting with options for 
   several popular "C" bracing and indentation styles including: K&R, Allman, Whitesmith as well as Linear compact and expanded.
   
+ There is a fuilly functional test application in the TestJSON folder.
+  
 ~Enjoy
