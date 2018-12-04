@@ -1,0 +1,12 @@
+JSONItem = 44, 58, 1103, 556, C
+JSONNull = 66, 87, 1125, 585, C
+JSONArray = 88, 116, 1147, 614, 
+JSONBool = 154, 203, 1213, 701, C
+JSONCharStream = 0, 0, 0, 0, C
+JSONNumber = 110, 145, 1169, 643, C
+JSONObject = 0, 0, 0, 0, C
+JSONReader = 0, 0, 0, 0, C
+JSONString = 132, 174, 1191, 672, C
+JSONTokenizer = 176, 232, 1235, 730, C
+JSONWriter = 6, 3, 1216, 687, Z
+FnGlobal = 140, 130, 1199, 628, C
