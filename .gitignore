@@ -3,5 +3,5 @@
 *.vbw
 *.exp
 *.lib
-TestEasyJSON/*.vwb
+TestEasyJSON/*.vbw
 
