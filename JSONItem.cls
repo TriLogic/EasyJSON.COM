@@ -3,11 +3,20 @@ BEGIN
   MultiUse = -1  'True
 END
 Attribute VB_Name = "JSONItem"
-Attribute VB_GlobalNameSpace = True
-Attribute VB_Creatable = True
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
 Option Explicit
+
+Enum JSONType
+    JSON_Null = 0
+    JSON_Bool = 1
+    JSON_Number = 2
+    JSON_String = 3
+    JSON_Array = 4
+    JSON_Object = 5
+End Enum
 
 Public Property Get Count() As Integer
 End Property
@@ -42,7 +51,7 @@ End Function
 Public Sub Remove(Key As String)
 End Sub
 
-Public Property Get JsType() As String
+Public Property Get ItemType() As JSONType
 End Property
 
 Public Property Get IsJsArray() As Boolean
@@ -77,4 +86,3 @@ End Property
 
 Public Property Set Parent(Value As JSONItem)
 End Property
-

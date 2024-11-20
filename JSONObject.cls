@@ -3,7 +3,7 @@ BEGIN
   MultiUse = -1  'True
 END
 Attribute VB_Name = "JSONObject"
-Attribute VB_GlobalNameSpace = True
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
@@ -41,9 +41,11 @@ Public Function JSONItem_Add(Value As JSONItem, Optional Key As String = "") As 
     If (IsMissing(Key) Or Key = "") Then
         Err.Raise 66001, , "Invalid Object Key"
     End If
+    
     If mData.Exists(Key) Then
         Err.Raise 66001, , "Duplicate Object Key"
     End If
+    
     Set mData(Key) = Value
     Set Value.Parent = Me
     Set JSONItem_Add = IIf(Value.IsJsObject Or Value.IsJsArray, Value, Me)
@@ -86,8 +88,8 @@ Public Sub JSONItem_Remove(Key As String)
     Err.Raise 66001, , "JSON: Invalid Container"
 End Sub
 
-Public Property Get JSONItem_JsType() As String
-    JSONItem_JsType = "object"
+Public Property Get JSONItem_ItemType() As JSONType
+    JSONItem_ItemType = JSON_Object
 End Property
 
 Public Property Get JSONItem_IsJsArray() As Boolean
@@ -135,6 +137,7 @@ End Property
 Public Sub JSONItem_SetValue(Value As Variant)
     Err.Raise 66001, , "JSON: Invalid Operation on Object"
 End Sub
+
 Public Function JSONItem_GetValue() As Variant
     Set JSONItem_GetValue = mData
 End Function

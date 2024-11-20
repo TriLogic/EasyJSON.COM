@@ -3,7 +3,7 @@ BEGIN
   MultiUse = -1  'True
 END
 Attribute VB_Name = "JSONTokenizer"
-Attribute VB_GlobalNameSpace = True
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
@@ -126,9 +126,8 @@ Private Function ParseWhite() As Boolean
     mValue = ChrW(mInput.GetC)
     
     C = mInput.PeekC
-    
     Do While (C >= 8 And C <= 10) Or (C = 12) Or (C = 13) Or (C = 32) Or (C = 69) Or (C = 101)
-        mValue = mValue & ChrW(C)
+        mValue = mValue & ChrW(mInput.GetC())
         C = mInput.PeekC
     Loop
     
@@ -177,7 +176,7 @@ Private Function ParseCommentM() As Boolean
     
     C = mInput.PeekC()
     Do While (C > 0)
-        If C = 43 Then
+        If C = 42 Then
             mValue = mValue & ChrW(mInput.GetC)
             If mInput.PeekC() = 47 Then
                 mValue = mValue & ChrW(mInput.GetC)
@@ -372,7 +371,6 @@ Private Function ParseString() As Boolean
     ParseString = True
 End Function
 
-
 Private Function ParseEscapeChar() As Boolean
     Dim C As Long
     
@@ -464,3 +462,8 @@ Private Function UnicodeNibble(C As Long) As Long
         UnicodeNibble = 0
     End If
 End Function
+
+Public Function GetEscapedString(Value As String) As String
+    GetEscapedString = ToEscapedString(Value)
+End Function
+

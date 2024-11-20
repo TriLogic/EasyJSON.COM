@@ -3,7 +3,7 @@ BEGIN
   MultiUse = -1  'True
 END
 Attribute VB_Name = "JSONNumber"
-Attribute VB_GlobalNameSpace = True
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
@@ -61,8 +61,8 @@ Public Sub JSONItem_Remove(Key As String)
     Err.Raise 66001, , "JSON: Invalid Container"
 End Sub
 
-Public Property Get JSONItem_JsType() As String
-    JSONItem_JsType = "number"
+Public Property Get JSONItem_ItemType() As JSONType
+    JSONItem_ItemType = JSON_Number
 End Property
 
 Public Property Get JSONItem_IsJsArray() As Boolean

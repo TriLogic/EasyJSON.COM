@@ -3,7 +3,7 @@ BEGIN
   MultiUse = -1  'True
 END
 Attribute VB_Name = "JSONString"
-Attribute VB_GlobalNameSpace = True
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
@@ -63,8 +63,8 @@ Public Sub JSONItem_Remove(Key As String)
     Err.Raise 66001, , "JSON: Invalid Container"
 End Sub
 
-Public Property Get JSONItem_JsType() As String
-    JSONItem_JsType = "string"
+Public Property Get JSONItem_ItemType() As JSONType
+    JSONItem_ItemType = JSON_String
 End Property
 
 Public Property Get JSONItem_IsJsArray() As Boolean
@@ -92,60 +92,10 @@ Public Property Get JSONItem_IsJsString() As Boolean
 End Property
 
 Public Property Get JSONItem_ToString() As String
-    Dim Temp As String
-    Dim Indx As Integer
-    Dim Chdx As Long
-    
-    For Indx = 1 To Len(mData)
-    
-        Chdx = AscW(Mid(mData, Indx, 1))
-        
-        If Chdx >= 0 And Chdx <= 127 Then
-        
-            Select Case Chdx
-            Case 34 '\"
-                Temp = Temp & "\"""
-            Case 92 ' '\\
-                Temp = Temp & "\\"
-            Case 47 ' '\
-                Temp = Temp & "\/"
-            Case &H8 ' '\b
-                Temp = Temp & "\b"
-            Case &H9 ' '\t
-                Temp = Temp & "\t"
-            Case &HA ' '\n
-                Temp = Temp & "\n"
-            Case &HC ' '\f
-                Temp = Temp & "\f"
-            Case &HD ' '\r
-                Temp = Temp & "\r"
-            Case Else
-                Temp = Temp & ChrW(Chdx)
-            End Select
-            
-        Else
-        
-            Temp = Temp & ToUnicode(Chdx)
-            
-        End If
-        
-    Next Indx
-    
-    JSONItem_ToString = """" & Temp & """"
+
+    JSONItem_ToString = """" & ToEscapedString(CStr(mData)) & """"
     
 End Property
-
-Private Function ToUnicode(UC As Long) As String
-    ToUnicode = "\u" _
-        & UnicodeNibble((UC / 4096) And &HF) _
-        & UnicodeNibble((UC / 256) And &HF) _
-        & UnicodeNibble((UC / 16) And &HF) _
-        & UnicodeNibble(UC And &HF)
-End Function
-
-Private Function UnicodeNibble(Nibble As Long) As String
-    UnicodeNibble = Mid("0123456789abcdef", 1 + Nibble, 1)
-End Function
 
 Public Sub JSONItem_SetValue(Value As Variant)
     mData = CStr(Value)
@@ -162,5 +112,7 @@ Public Property Set JSONItem_Parent(Value As JSONItem)
     Set mParent = Value
 End Property
 
-
+Public Static Function GetEscapedString(Value As String) As String
+    GetEscapedString = ToEscapedString(Value)
+End Function
 

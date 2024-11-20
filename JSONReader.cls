@@ -72,7 +72,7 @@ Private Sub ParseObject(Optional Key As String = "")
     Loop
 
     If mTokens.TokenType <> TK_OBJECTR Then
-        Err.Raise 66001, , "JSON: INvalid Object Syntax"
+        Err.Raise 66001, , "JSON: Invalid Object Syntax"
     End If
 
     If Not (mItem.Parent Is Nothing) Then

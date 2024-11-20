@@ -1,0 +1,7 @@
+# Ignore all VB build files
+*.dll
+*.vbw
+*.exp
+*.lib
+TestEasyJSON/*.vwb
+

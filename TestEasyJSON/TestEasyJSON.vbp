@@ -1,7 +1,8 @@
 Type=Exe
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\..\..\WINDOWS\system32\stdole2.tlb#OLE Automation
-Reference=*\G{DAADDBAC-9C8E-4DEE-9997-387430FB5E48}#1.0#0#..\EasyJSON.dll#EasyJSON: JSON Library for COM
-Module=Module1; ModMain.bas
+Reference=*\G{1C71A00B-BE1A-4C09-9E77-BAE1E58AD501}#1.0#0#..\..\..\..\C:\Documents and Settings\affriedl#EasyJSON: JSON Library for COM
+Module=ModMain; ModMain.bas
+Module=ModBuilder; ModBuilder.bas
 Startup="Sub Main"
 HelpFile=""
 Command32=""
