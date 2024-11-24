@@ -28,6 +28,6 @@ Once a hierachy of objects has been created (or read) you can output a JSON stri
 
 To Do:
   1) Implement code to replace a item in JSONArray by numeric index key
-  2) Implment code to replace an item in JSONObject by string key
+  2) Implement code to replace an item in JSONObject by string key
 
 ~Enjoy
