@@ -27,7 +27,7 @@ Once a hierachy of objects has been created (or read) you can output a JSON stri
  There is a fully functional test application in the TestEasyJSON folder.
 
 To Do:
-  1) Implement code to replace a item in JSONArray by numeric index key
+  1) Implement code to replace an item in JSONArray by numeric index key
   2) Implement code to replace an item in JSONObject by string key
 
 ~Enjoy
